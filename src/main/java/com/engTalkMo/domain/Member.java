@@ -28,8 +28,8 @@ public class Member {
 
     public static Member of(MemberDto memberDto) {
         return Member.builder()
-                .username(memberDto.getUsername())
-                .password(memberDto.getPassword())
+                .username(memberDto.username())
+                .password(memberDto.password())
                 .build();
     }
 }
