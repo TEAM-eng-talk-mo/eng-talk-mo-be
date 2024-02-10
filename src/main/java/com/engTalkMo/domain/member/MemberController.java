@@ -1,4 +1,4 @@
-package com.engTalkMo.domain;
+package com.engTalkMo.domain.member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

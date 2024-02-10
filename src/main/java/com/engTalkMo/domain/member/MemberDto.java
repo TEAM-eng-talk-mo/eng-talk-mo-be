@@ -1,4 +1,4 @@
-package com.engTalkMo.domain;
+package com.engTalkMo.domain.member;
 
 import jakarta.validation.constraints.NotEmpty;
 

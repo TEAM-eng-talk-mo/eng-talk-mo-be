@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### oAuth2 ###
+src/main/resources/application-oauth.yml
