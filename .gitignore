@@ -37,4 +37,5 @@ out/
 .vscode/
 
 ### oAuth2 ###
+src/main/resources/application.yml
 src/main/resources/application-oauth.yml

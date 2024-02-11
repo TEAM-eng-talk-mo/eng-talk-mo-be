@@ -15,13 +15,13 @@ public class MemberController {
     private final MemberRepository memberRepository;
     private final MemberService memberService;
 
-    @GetMapping("/members")
-    public List<Member> memberList() {
-        return memberRepository.findAll();
-    }
-
-    @PostMapping("/save")
-    public Member save(@RequestBody MemberDto memberDto) {
-        return memberService.save(memberDto);
-    }
+//    @GetMapping("/members")
+//    public List<Member> memberList() {
+//        return memberRepository.findAll();
+//    }
+//
+//    @PostMapping("/save")
+//    public Member save(@RequestBody MemberDto memberDto) {
+//        return memberService.save(memberDto);
+//    }
 }
