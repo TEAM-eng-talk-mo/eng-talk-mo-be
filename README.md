@@ -1,5 +1,5 @@
 # 🔠English Talk MOIM!✍️
-### EngTalkMo (잉톡모)
+### EngTalkMo "잉톡모"
 
 ## 👆Introduce
 EngTalkMo! 영어 회화 스터디 모임 중개 서비스를 제공하는 스터디 플랫폼입니다.
