@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true # 쿼리 출력
+        default_batch_fetch_size: 100
+    defer-datasource-initialization: true # 테이블 생성 후 data.sql 실행
+
+logging.level:
+  org.hibernate.SQL: debug
