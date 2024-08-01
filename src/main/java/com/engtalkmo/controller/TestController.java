@@ -1,9 +1,8 @@
 package com.engtalkmo.controller;
 
-import com.engtalkmo.domain.Member;
-import com.engtalkmo.repository.MemberRepository;
+import com.engtalkmo.domain.member.Member;
+import com.engtalkmo.domain.member.repository.MemberRepository;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
