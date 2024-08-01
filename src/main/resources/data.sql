@@ -1,3 +1,7 @@
-INSERT INTO member (member_id, name) VALUES (1, 'name 1')
-INSERT INTO member (member_id, name) VALUES (2, 'name 2')
-INSERT INTO member (member_id, name) VALUES (3, 'name 3')
+INSERT INTO member (name) VALUES ('hui')
+INSERT INTO member (name) VALUES ('hyena')
+INSERT INTO member (name) VALUES ('mina')
+
+INSERT INTO article (title, content) VALUES ('Spring', 'spring is good')
+INSERT INTO article (title, content) VALUES ('JPA/Hibernate', 'ORM is good')
+INSERT INTO article (title, content) VALUES ('MyBatis', '...')

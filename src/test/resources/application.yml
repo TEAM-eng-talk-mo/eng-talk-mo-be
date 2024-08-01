@@ -1,0 +1,14 @@
+spring:
+  sql:
+    init:
+      mode: never
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true # 쿼리 출력
+
+logging.level:
+  org.hibernate.SQL: debug

@@ -1,4 +1,4 @@
-package com.engtalkmo.domain;
+package com.engtalkmo.domain.member;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
