@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest // 테스트용 애플리케이션 컨텍스트 생성
 @AutoConfigureMockMvc // MockMvc 생성 및 자동 구성
-class TestControllerTest {
+class TestControllerTestRest {
 
     @Autowired protected MockMvc mockMvc;
     @Autowired private WebApplicationContext context;
