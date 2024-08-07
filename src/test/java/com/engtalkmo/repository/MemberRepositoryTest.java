@@ -1,6 +1,6 @@
 package com.engtalkmo.repository;
 
-import com.engtalkmo.domain.member.Member;
+import com.engtalkmo.domain.member.domain.Member;
 import com.engtalkmo.domain.member.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

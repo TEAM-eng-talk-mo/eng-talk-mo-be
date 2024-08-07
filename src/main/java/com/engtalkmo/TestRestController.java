@@ -1,6 +1,6 @@
 package com.engtalkmo;
 
-import com.engtalkmo.domain.member.Member;
+import com.engtalkmo.domain.member.domain.Member;
 import com.engtalkmo.domain.member.repository.MemberRepository;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
