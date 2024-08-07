@@ -14,16 +14,16 @@ public class BlogService {
 
     private final BlogRepository blogRepository;
 
-    public Long create(AddArticleRequest request) {
-        Article article = blogRepository.save(request.toEntity());
+    public Long create(AddArticleRequest dto) {
+        Article article = blogRepository.save(dto.toEntity());
         return article.getId();
     }
 
     @Transactional
-    public Long update(long id, UpdateArticleRequest request) {
+    public Long update(long id, UpdateArticleRequest dto) {
         Article article = blogRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
-        article.update(request.title(), request.content());
+        article.update(dto.title(), dto.content());
         return article.getId();
     }
 }

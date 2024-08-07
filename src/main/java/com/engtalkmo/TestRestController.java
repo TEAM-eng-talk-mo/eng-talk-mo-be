@@ -1,6 +1,6 @@
-package com.engtalkmo.controller;
+package com.engtalkmo;
 
-import com.engtalkmo.domain.member.Member;
+import com.engtalkmo.domain.member.domain.Member;
 import com.engtalkmo.domain.member.repository.MemberRepository;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class TestController {
+public class TestRestController {
 
     private final MemberRepository memberRepository;
 
