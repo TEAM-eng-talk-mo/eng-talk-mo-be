@@ -10,6 +10,9 @@ public record AddMemberRequest(
         @Email(message = "이메일 형식이 아닙니다.")
         String email,
 
+        @NotEmpty(message = "이름은 필수 입력입니다.")
+        String name,
+
         @NotEmpty(message = "이메일은 필수 입력입니다.")
         String password
 ) {
@@ -17,6 +20,7 @@ public record AddMemberRequest(
     public Member toEntity(BCryptPasswordEncoder passwordEncoder) {
         return Member.builder()
                 .email(this.email)
+                .name(this.name)
                 .password(passwordEncoder.encode(this.password))
                 .build();
     }
