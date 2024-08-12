@@ -1,0 +1,7 @@
+.gradient-login {
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+}
+
+.gradient-signup {
+    background: linear-gradient(to right, rgba(254, 238, 229, 1), rgba(229, 193, 197, 1))
+}

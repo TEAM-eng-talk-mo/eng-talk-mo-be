@@ -25,28 +25,19 @@ public class WebSecurityConfig {
     private final UserDetailService userDetailService;
 
     @Bean
-    public WebSecurityCustomizer configure() {
-        return (web) -> web.ignoring()
-                .requestMatchers(toH2Console())
-                .requestMatchers(new AntPathRequestMatcher("/static/**"));
-    }
-
-    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/css/**", "/js/**", "/images/**").permitAll() // Allow static resources
+                        .requestMatchers("/h2-console/**").permitAll() // Allow H2 Console access
                         .requestMatchers(
-                                new AntPathRequestMatcher("/login"),
-                                new AntPathRequestMatcher("/sign-up"),
-                                new AntPathRequestMatcher("/member")
-                        )
-                        .permitAll()
+                                "/login", "/signup", "/members").permitAll()
                         .anyRequest().authenticated()
                 ).formLogin(formLogin -> formLogin
                         .loginPage("/login")
                         .defaultSuccessUrl("/articles")
                 ).logout(logout -> logout
-                        .logoutSuccessUrl("login")
+                        .logoutSuccessUrl("/login")
                         .invalidateHttpSession(true)
                 )
                 .csrf(AbstractHttpConfigurer::disable)

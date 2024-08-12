@@ -16,7 +16,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "member")
-@Getter @DynamicInsert
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member extends BaseTimeEntity implements UserDetails {
 
@@ -34,9 +34,10 @@ public class Member extends BaseTimeEntity implements UserDetails {
     private String name;
 
     @Builder
-    public Member(String email, String password) {
+    public Member(String email, String password, String name) {
         this.email = email;
         this.password = password;
+        this.name = name;
     }
 
     @Builder
