@@ -30,7 +30,7 @@ public class Member extends BaseTimeEntity implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
     @Builder

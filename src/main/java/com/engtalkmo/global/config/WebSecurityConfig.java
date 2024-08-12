@@ -22,14 +22,12 @@ import static org.springframework.boot.autoconfigure.security.servlet.PathReques
 @RequiredArgsConstructor
 public class WebSecurityConfig {
 
-    private final UserDetailService userDetailService;
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/css/**", "/js/**", "/images/**").permitAll() // Allow static resources
-                        .requestMatchers("/h2-console/**").permitAll() // Allow H2 Console access
+                        .requestMatchers(
+                                "/", "/css/**", "/images/**", "/js/**", "/h2-console/**").permitAll()
                         .requestMatchers(
                                 "/login", "/signup", "/members").permitAll()
                         .anyRequest().authenticated()
@@ -45,11 +43,11 @@ public class WebSecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(BCryptPasswordEncoder passwordEncoder) throws Exception {
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailService);
-        authProvider.setPasswordEncoder(passwordEncoder);
-        return new ProviderManager(authProvider);
+    public AuthenticationManager authenticationManager(BCryptPasswordEncoder passwordEncoder, UserDetailService userDetailService) {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userDetailService);
+        provider.setPasswordEncoder(passwordEncoder);
+        return new ProviderManager(provider);
     }
 
     @Bean

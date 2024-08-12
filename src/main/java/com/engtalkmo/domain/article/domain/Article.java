@@ -1,5 +1,6 @@
 package com.engtalkmo.domain.article.domain;
 
+import com.engtalkmo.domain.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -11,7 +12,7 @@ import org.hibernate.annotations.DynamicInsert;
 @Table(name = "article")
 @Getter @DynamicInsert
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Article {
+public class Article extends BaseTimeEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "article_id", updatable = false)
