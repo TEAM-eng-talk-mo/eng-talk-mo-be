@@ -1,17 +1,25 @@
 package com.engtalkmo.domain.article.dto;
 
 import com.engtalkmo.domain.article.domain.Article;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-public record ArticleViewResponse(
-        Long id,
-        String title,
-        String content,
-        LocalDateTime createdDate) {
+@Getter
+@NoArgsConstructor
+public class ArticleViewResponse {
 
-    public static ArticleViewResponse from(Article article) {
-        return new ArticleViewResponse(
-                article.getId(), article.getTitle(), article.getContent(), article.getCreatedDate());
+    private Long id;
+    private String title;
+    private String content;
+    private LocalDateTime createdDate;
+
+    public ArticleViewResponse(Article article) {
+        this.id = article.getId();
+        this.title = article.getTitle();
+        this.content = article.getContent();
+        this.createdDate = article.getCreatedDate();
     }
+
 }
