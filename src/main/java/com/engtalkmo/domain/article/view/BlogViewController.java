@@ -1,4 +1,4 @@
-package com.engtalkmo.domain.article.controller;
+package com.engtalkmo.domain.article.view;
 
 import com.engtalkmo.domain.article.domain.Article;
 import com.engtalkmo.domain.article.dto.ArticleViewResponse;
