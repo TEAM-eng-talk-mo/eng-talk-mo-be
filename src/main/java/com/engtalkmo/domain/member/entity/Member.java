@@ -1,4 +1,4 @@
-package com.engtalkmo.domain.member.domain;
+package com.engtalkmo.domain.member.entity;
 
 import com.engtalkmo.domain.BaseTimeEntity;
 import jakarta.persistence.*;
@@ -6,7 +6,6 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.DynamicInsert;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,11 +36,6 @@ public class Member extends BaseTimeEntity implements UserDetails {
     public Member(String email, String password, String name) {
         this.email = email;
         this.password = password;
-        this.name = name;
-    }
-
-    @Builder
-    public Member(String name) {
         this.name = name;
     }
 

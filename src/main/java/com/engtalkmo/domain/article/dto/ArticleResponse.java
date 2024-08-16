@@ -1,6 +1,6 @@
 package com.engtalkmo.domain.article.dto;
 
-import com.engtalkmo.domain.article.domain.Article;
+import com.engtalkmo.domain.article.entity.Article;
 
 public record ArticleResponse(Long articleId, String title, String content) {
 

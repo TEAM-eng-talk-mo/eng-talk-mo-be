@@ -1,4 +1,4 @@
-package com.engtalkmo.domain.article.domain;
+package com.engtalkmo.domain.article.entity;
 
 import com.engtalkmo.domain.BaseTimeEntity;
 import jakarta.persistence.*;

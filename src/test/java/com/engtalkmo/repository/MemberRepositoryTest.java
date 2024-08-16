@@ -1,6 +1,6 @@
 package com.engtalkmo.repository;
 
-import com.engtalkmo.domain.member.domain.Member;
+import com.engtalkmo.domain.member.entity.Member;
 import com.engtalkmo.domain.member.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +26,6 @@ class MemberRepositoryTest {
         // then
         assertThat(members.size()).isEqualTo(3);
         assertThat(members).extracting(Member::getName)
-                .containsExactly("name 1", "name 2", "name 3");
+                .containsExactly("hui", "hyena", "mina");
     }
 }

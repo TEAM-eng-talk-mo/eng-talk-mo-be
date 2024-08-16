@@ -1,7 +1,7 @@
 package com.engtalkmo.domain.article.view;
 
-import com.engtalkmo.domain.article.domain.Article;
 import com.engtalkmo.domain.article.dto.ArticleViewResponse;
+import com.engtalkmo.domain.article.entity.Article;
 import com.engtalkmo.domain.article.service.BlogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

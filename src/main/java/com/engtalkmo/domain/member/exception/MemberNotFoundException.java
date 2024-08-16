@@ -7,4 +7,8 @@ public class MemberNotFoundException extends EntityNotFoundException {
     public MemberNotFoundException(String value) {
         super(value + " is not found");
     }
+
+    public MemberNotFoundException(Long value) {
+        super(value + " is not found");
+    }
 }
