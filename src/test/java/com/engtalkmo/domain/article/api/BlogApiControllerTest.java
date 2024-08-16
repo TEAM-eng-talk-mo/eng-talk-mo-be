@@ -1,8 +1,8 @@
 package com.engtalkmo.domain.article.api;
 
-import com.engtalkmo.domain.article.entity.Article;
 import com.engtalkmo.domain.article.dto.AddArticleRequest;
 import com.engtalkmo.domain.article.dto.UpdateArticleRequest;
+import com.engtalkmo.domain.article.entity.Article;
 import com.engtalkmo.domain.article.repository.BlogRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;

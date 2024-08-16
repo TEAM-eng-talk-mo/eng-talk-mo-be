@@ -1,9 +1,9 @@
 package com.engtalkmo.domain.article.service;
 
-import com.engtalkmo.domain.article.entity.Article;
 import com.engtalkmo.domain.article.dto.AddArticleRequest;
 import com.engtalkmo.domain.article.dto.ArticleListViewResponse;
 import com.engtalkmo.domain.article.dto.UpdateArticleRequest;
+import com.engtalkmo.domain.article.entity.Article;
 import com.engtalkmo.domain.article.exception.ArticleIdNotFoundException;
 import com.engtalkmo.domain.article.repository.BlogRepository;
 import lombok.RequiredArgsConstructor;

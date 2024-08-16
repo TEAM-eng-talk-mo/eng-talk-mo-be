@@ -2,7 +2,6 @@ package com.engtalkmo.domain.token.api;
 
 import com.engtalkmo.domain.member.entity.Member;
 import com.engtalkmo.domain.member.repository.MemberRepository;
-import com.engtalkmo.domain.member.service.MemberFindService;
 import com.engtalkmo.domain.token.dto.CreateAccessTokenRequest;
 import com.engtalkmo.domain.token.entity.RefreshToken;
 import com.engtalkmo.domain.token.repository.RefreshTokenRepository;
@@ -17,14 +16,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
