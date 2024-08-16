@@ -48,6 +48,10 @@ dependencies {
 	implementation "javax.xml.bind:jaxb-api:2.3.1"
 	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 
+	// unknown enum constant When.MAYBE
+	// javax.annotation.meta.When 런타임에서 열거형을 사용할 수 없기 때문에 발생(JSR305 필요)
+	implementation 'com.google.code.findbugs:jsr305:3.0.2'
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testCompileOnly 'org.projectlombok:lombok'

@@ -1,3 +1,3 @@
-INSERT INTO member (member_id, name) VALUES (1, 'name 1')
-INSERT INTO member (member_id, name) VALUES (2, 'name 2')
-INSERT INTO member (member_id, name) VALUES (3, 'name 3')
+INSERT INTO member (name, email, created_date, last_modified_date) VALUES ('hui', 'hui@engtalk.com', NOW(), NOW())
+INSERT INTO member (name, email, created_date, last_modified_date) VALUES ('hyena', 'hyena@engtalk.com', NOW(), NOW())
+INSERT INTO member (name, email, created_date, last_modified_date) VALUES ('mina', 'mina@engtalk.com', NOW(), NOW())

@@ -1,6 +1,6 @@
 package com.engtalkmo.global.config.jwt;
 
-import com.engtalkmo.domain.member.domain.Member;
+import com.engtalkmo.domain.member.entity.Member;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Header;
 import io.jsonwebtoken.Jwts;
@@ -12,6 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Set;
@@ -22,20 +23,25 @@ public class TokenProvider {
 
     private final JwtProperties properties;
 
+    public String generateToken(Member member, Duration duration) {
+        Date expiry = new Date(new Date().getTime() + duration.toMillis());
+        return createToken(expiry, member);
+    }
+
     private String createToken(Date expiry, Member member) {
         Date now = new Date();
         return Jwts.builder()
+                .setSubject(member.getEmail())
                 .setHeaderParam(Header.TYPE, Header.JWT_TYPE)
                 .setIssuer(properties.getIssuer())
                 .setIssuedAt(now)
                 .setExpiration(expiry)
-                .setSubject(member.getEmail())
                 .claim("id", member.getId())
                 .signWith(SignatureAlgorithm.HS256, properties.getSecretKey())
                 .compact();
     }
 
-    private boolean validToken(String token) {
+    public boolean validToken(String token) {
         try {
             Jwts.parser()
                     .setSigningKey(properties.getSecretKey())
@@ -54,7 +60,7 @@ public class TokenProvider {
                 new User(claims.getSubject(), "", authorities), token, authorities);
     }
 
-    public Long getUserId(String token) {
+    public Long getMemberId(String token) {
         Claims claims = getClaims(token);
         return claims.get("id", Long.class);
     }

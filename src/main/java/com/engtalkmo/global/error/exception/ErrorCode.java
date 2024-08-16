@@ -1,5 +1,8 @@
 package com.engtalkmo.global.error.exception;
 
+import lombok.Getter;
+
+@Getter
 public enum ErrorCode {
 
     // Commons Exception code
@@ -13,7 +16,10 @@ public enum ErrorCode {
     // Member Exception code
     EMAIL_DUPLICATION(400, "M001", "Email is duplication"),
     LOGIN_INPUT_INVALID(400, "M002", "Login input is invalid"),
-    MEMBER_NOT_FOUND(400, "M003", "Member is not found");
+    MEMBER_NOT_FOUND(400, "M003", "Member is not found"),
+
+    // Token Exception code
+    INVALID_TOKEN(400, "T001", "Token is invalid");
 
     private final String code;
     private final String message;
@@ -25,15 +31,4 @@ public enum ErrorCode {
         this.code = code;
     }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
 }

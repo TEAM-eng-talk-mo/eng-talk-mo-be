@@ -1,6 +1,6 @@
 package com.engtalkmo.domain.article.service;
 
-import com.engtalkmo.domain.article.domain.Article;
+import com.engtalkmo.domain.article.entity.Article;
 import com.engtalkmo.domain.article.dto.AddArticleRequest;
 import com.engtalkmo.domain.article.dto.ArticleListViewResponse;
 import com.engtalkmo.domain.article.dto.UpdateArticleRequest;

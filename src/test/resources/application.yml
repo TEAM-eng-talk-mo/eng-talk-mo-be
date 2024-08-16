@@ -12,3 +12,7 @@ spring:
 
 logging.level:
   org.hibernate.SQL: debug
+
+jwt:
+  issuer: hui-dev
+  secret_key: jwt-token-test

@@ -1,6 +1,6 @@
 package com.engtalkmo.domain.member.service;
 
-import com.engtalkmo.domain.member.domain.Member;
+import com.engtalkmo.domain.member.entity.Member;
 import com.engtalkmo.domain.member.dto.AddMemberRequest;
 import com.engtalkmo.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;

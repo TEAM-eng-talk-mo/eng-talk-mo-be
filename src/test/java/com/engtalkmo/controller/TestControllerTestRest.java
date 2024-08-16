@@ -1,6 +1,6 @@
 package com.engtalkmo.controller;
 
-import com.engtalkmo.domain.member.domain.Member;
+import com.engtalkmo.domain.member.entity.Member;
 import com.engtalkmo.domain.member.repository.MemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,7 +43,10 @@ class TestControllerTestRest {
     void findMembers() throws Exception {
         // given
         final String url = "/test";
-        final Member member = memberRepository.save(new Member("홍길동"));
+        final Member member = memberRepository.save(
+                Member.builder()
+                        .email("hui@email.com")
+                        .build());
 
         // when
         ResultActions result = mockMvc.perform(get(url)

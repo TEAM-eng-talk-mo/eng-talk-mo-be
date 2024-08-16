@@ -1,6 +1,6 @@
 package com.engtalkmo.domain.member.dto;
 
-import com.engtalkmo.domain.member.domain.Member;
+import com.engtalkmo.domain.member.entity.Member;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
