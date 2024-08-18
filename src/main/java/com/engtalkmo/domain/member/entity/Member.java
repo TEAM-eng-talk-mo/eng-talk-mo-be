@@ -29,14 +29,19 @@ public class Member extends BaseTimeEntity implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "nickname")
+    private String nickname;
+
+    public Member update(String nickname) {
+        this.nickname = nickname;
+        return this;
+    }
 
     @Builder
-    public Member(String email, String password, String name) {
+    public Member(String email, String password, String nickname) {
         this.email = email;
         this.password = password;
-        this.name = name;
+        this.nickname = nickname;
     }
 
     @Override

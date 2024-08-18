@@ -25,7 +25,7 @@ class MemberRepositoryTest {
 
         // then
         assertThat(members.size()).isEqualTo(3);
-        assertThat(members).extracting(Member::getName)
+        assertThat(members).extracting(Member::getNickname)
                 .containsExactly("hui", "hyena", "mina");
     }
 }

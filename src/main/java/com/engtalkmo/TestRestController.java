@@ -44,7 +44,7 @@ public class TestRestController {
         private final String name;
 
         public MemberDto(Member member) {
-            this.name = member.getName();
+            this.name = member.getNickname();
         }
     }
 }
