@@ -1,6 +1,7 @@
 package com.engtalkmo.domain.article.entity;
 
 import com.engtalkmo.domain.BaseTimeEntity;
+import com.engtalkmo.domain.member.entity.Member;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -18,6 +19,10 @@ public class Article extends BaseTimeEntity {
     @Column(name = "article_id", updatable = false)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
     @Column(name = "title", nullable = false)
     private String title;
 
@@ -25,7 +30,8 @@ public class Article extends BaseTimeEntity {
     private String content;
 
     @Builder
-    public Article(String title, String content) {
+    public Article(Member member, String title, String content) {
+        this.member = member;
         this.title = title;
         this.content = content;
     }
