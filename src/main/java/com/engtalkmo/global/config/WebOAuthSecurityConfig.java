@@ -42,7 +42,8 @@ public class WebOAuthSecurityConfig {
                         tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class
                 )
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/css/**", "/img/**", "/js/**", "/h2-console/**").permitAll()
+                        .requestMatchers(
+                                "/test/**", "/css/**", "/img/**", "/js/**", "/h2-console/**").permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/token")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/**")).authenticated()
                         .anyRequest().permitAll()

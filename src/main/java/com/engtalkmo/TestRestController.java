@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +27,11 @@ public class TestRestController {
                 .toList();
         return ResponseEntity.ok(new Result<>(list.size(), list));
     }
+
+    // @GetMapping("/test/principle")
+    // public String principle() {
+    //     return SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+    // }
 
     @GetMapping("favicon.ico")
     @ResponseBody
