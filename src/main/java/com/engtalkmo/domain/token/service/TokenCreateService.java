@@ -16,7 +16,7 @@ public class TokenCreateService {
     private static final Duration ACCESS_TOKEN_EXPIRY = Duration.ofHours(2);
 
     private final TokenProvider tokenProvider;
-    private final RefreshTokenFindService refreshTokenFindService;
+    private final RefreshTokenService refreshTokenService;
     private final MemberFindService memberFindService;
 
     public String createAccessToken(String refreshToken) {
@@ -25,7 +25,7 @@ public class TokenCreateService {
             throw new RefreshTokenInvalidException(refreshToken);
         }
 
-        Long memberId = refreshTokenFindService.findByRefreshToken(refreshToken).getMemberId();
+        Long memberId = refreshTokenService.findByRefreshToken(refreshToken).getMemberId();
         Member member = memberFindService.findById(memberId);
 
         return tokenProvider.generateToken(member, ACCESS_TOKEN_EXPIRY);

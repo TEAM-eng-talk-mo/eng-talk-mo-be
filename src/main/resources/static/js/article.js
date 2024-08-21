@@ -65,7 +65,6 @@ if (createButton) {
     });
 }
 
-
 // 로그아웃 기능
 const logoutButton = document.getElementById('logout-btn');
 if (logoutButton) {
@@ -85,8 +84,6 @@ if (logoutButton) {
         httpRequest('DELETE','/api/refresh-token', null, success, fail);
     });
 }
-
-
 
 // 쿠키를 가져오는 함수
 function getCookie(key) {
@@ -110,7 +107,6 @@ function getCookie(key) {
 function deleteCookie(name) {
     document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
-
 
 // HTTP 요청을 보내는 함수
 function httpRequest(method, url, body, success, fail) {

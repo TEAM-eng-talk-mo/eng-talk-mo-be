@@ -3,9 +3,11 @@ package com.engtalkmo.global.config.oauth;
 import com.engtalkmo.domain.member.entity.Member;
 import com.engtalkmo.global.error.exception.UnsupportedSocialLoginException;
 import lombok.Builder;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
 
+@Slf4j
 @Builder
 public record OAuth2Attribute(
         Map<String, Object> attributes,
@@ -14,6 +16,7 @@ public record OAuth2Attribute(
         String name,
         String picture,
         String provider) {
+
 
     public static OAuth2Attribute of(String provider, String attributeKey, Map<String, Object> attributes) {
         return switch (provider) {
@@ -55,6 +58,7 @@ public record OAuth2Attribute(
         Map<String, Object> profile = (Map<String, Object>) kakaoAccount.get("profile");
         return OAuth2Attribute.builder()
                 .email((String) kakaoAccount.get("email"))
+                .name((String) profile.get("nickname"))
                 .picture((String) profile.get("profile_image_url"))
                 .provider(provider)
                 .attributes(kakaoAccount)
@@ -65,7 +69,7 @@ public record OAuth2Attribute(
     public Member toEntity() {
         return Member.builder()
                 .email(this.email)
-                .nickname(this.name)
+                .name(this.name)
                 .build();
     }
 }

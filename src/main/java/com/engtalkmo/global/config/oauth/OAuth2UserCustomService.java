@@ -1,8 +1,9 @@
 package com.engtalkmo.global.config.oauth;
 
-import com.engtalkmo.domain.member.entity.Member;
 import com.engtalkmo.domain.member.repository.MemberRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class OAuth2UserCustomService extends DefaultOAuth2UserService {
@@ -20,6 +22,7 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
     private final MemberRepository memberRepository;
 
     @Override
+    @Transactional
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         // Step #1) OAuth2User 정보를 가져온다.
         OAuth2User oAuth2User = super.loadUser(userRequest);
@@ -34,7 +37,7 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
                 registrationId, userNameAttributeName, oAuth2User.getAttributes());
 
         // Step #4) 신규 회원인지 확인 후, 저장 또는 업데이트
-        Member member = saveOrUpdate(oAuth2Attribute);
+        saveOrUpdate(oAuth2Attribute);
 
         // Step #5) DefaultOAuth2User 생성 후, 반환
         return new DefaultOAuth2User(
@@ -43,11 +46,11 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
                 "email");
     }
 
-    private Member saveOrUpdate(OAuth2Attribute oAuth2Attribute) {
-        return memberRepository.findByEmail(oAuth2Attribute.email())
+    private void saveOrUpdate(OAuth2Attribute oAuth2Attribute) {
+        memberRepository.findByEmail(oAuth2Attribute.email())
                 .map(entity -> entity
                         .update(oAuth2Attribute.name()))
-                .orElse(memberRepository
+                .orElseGet(() -> memberRepository
                         .save(oAuth2Attribute.toEntity()));
     }
 }
