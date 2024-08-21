@@ -27,6 +27,11 @@ public class TestRestController {
         return ResponseEntity.ok(new Result<>(list.size(), list));
     }
 
+    // @GetMapping("/test/principle")
+    // public String principle() {
+    //     return SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+    // }
+
     @GetMapping("favicon.ico")
     @ResponseBody
     void returnNoFavicon() {
@@ -44,7 +49,7 @@ public class TestRestController {
         private final String name;
 
         public MemberDto(Member member) {
-            this.name = member.getNickname();
+            this.name = member.getName();
         }
     }
 }

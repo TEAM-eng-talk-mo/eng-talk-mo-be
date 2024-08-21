@@ -56,6 +56,6 @@ class TestControllerTestRest {
         result
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.count").value(1))
-                .andExpect(jsonPath("$.data[0].name").value(member.getNickname()));
+                .andExpect(jsonPath("$.data[0].name").value(member.getName()));
     }
 }

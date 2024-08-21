@@ -19,9 +19,8 @@ public class Article extends BaseTimeEntity {
     @Column(name = "article_id", updatable = false)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    private Member member;
+    @Column(name = "author", nullable = false)
+    private String author;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -30,8 +29,8 @@ public class Article extends BaseTimeEntity {
     private String content;
 
     @Builder
-    public Article(Member member, String title, String content) {
-        this.member = member;
+    public Article(String author, String title, String content) {
+        this.author = author;
         this.title = title;
         this.content = content;
     }
