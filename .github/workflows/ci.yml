@@ -1,16 +1,13 @@
-# workflows 이름 지정
 name: CI
 
-# workflows 시작될 조건 지정
 on:
   push:
     branches: [ main ]
 
 jobs:
   build:
-    # 실행 환경 지정
     runs-on: ubuntu-latest
-    # 실행 Step 지정
+
     steps:
       - uses: actions/checkout@v3
 
@@ -18,6 +15,16 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
+
+      - name: Cache Gradle packages
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
