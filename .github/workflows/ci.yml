@@ -31,3 +31,6 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew clean build
+
+      - name: Run Tests with Debug Info
+        run: ./gradlew test -i
