@@ -53,6 +53,7 @@ class TokenApiTest {
     public void mockMvcSetup() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.context).build();
         memberRepository.deleteAll();
+        refreshTokenRepository.deleteAll();
     }
 
     @BeforeEach
@@ -107,6 +108,7 @@ class TokenApiTest {
     @Test
     void deleteRefreshToken() throws Exception {
         // given
+        refreshTokenRepository.deleteAll(); // fix: refreshToken 삭제
         final String url = "/api/refresh-token";
 
         String refreshToken = createRefreshToken();
