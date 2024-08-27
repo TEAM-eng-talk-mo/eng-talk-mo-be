@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: local
+    include: oauth
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+
+jwt:
+  issuer: hui@engtalkmo.com
+  secret_key: engtalkmo-secret-key-1dsadasdsdajio1sad!!3#
